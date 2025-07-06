@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+
+    <style>
+
+        .err1 {
+         
+            color:red;
+            display: none;
+        }
+
+        .invalid{
+
+            border:solid 2px red;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return false ">
+
+        <label for="">Name:</label>
+        <input id="abc"  type="text">
+        <br><br><br>
+
+        <div id="err" class="err1">Please enter name and surname</div>
+        <br><br>
+
+        <label for="">Surname:</label>
+        <input id="xyz" type="text">
+        <br><br><br>
+
+        <button type="button" onclick="box()">Sumbit:</button>
+
+        <div id="output"></div>
+    </form>
+
+
+    <script>
+let obj={arr:[]};
+console.log(obj);
+function box(){
+
+  let  name=document.getElementById("abc");
+  let  surname=document.getElementById("xyz");
+  let  error=document.getElementById("err")
+
+  let  newName=name.value.trim();
+  let newSurname=surname.value.trim();
+
+  if(newName=="" && newSurname==""){
+    error.style.display="block";
+    name.classList.add("invalid");
+    surname.classList.add("invalid");
+  }
+  else{
+    let fullname=newName + " " + newSurname;
+     obj.arr.push(fullname);
+     console.log(obj);
+    
+
+     name.value="";
+     surname.value="";
+     error.style.display="none";
+     name.classList.remove("invalid");
+     surname.classList.remove("invalid");
+
+
+     console.clear();
+     console.log(obj);
+     
+  }
+
+};
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
